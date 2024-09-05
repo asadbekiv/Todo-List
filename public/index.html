@@ -1,27 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
-    <link rel="stylesheet" type="text/css" href="/index.css" />
-    <title>Snowpack App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="dist/index.js" type="module"></script>
+    <title>Todo List</title>
+    <link rel="icon" href="./favicon/check-list (1).png" type="image/x-icon" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      #list {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px 0;
+      }
+
+      #list li {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      #list li:hover {
+        background-color: #e3e3e8;
+      }
+
+      form {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+      }
+
+      input[type='text'] {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type='text']:focus {
+        border-color: #6200ea;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-left: 10px;
+        background-color: #6200ea;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #3700b3;
+      }
+
+      button:active {
+        background-color: #03dac5;
+      }
+    </style>
   </head>
   <body>
-    <img id="img" src="/logo.svg" />
-    <canvas id="canvas"></canvas>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="/dist/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <ul id="list"></ul>
+    <form id="new-task-form">
+      <input
+        type="text"
+        id="new-task-title"
+        placeholder="Enter a new task..."
+      />
+      <button type="submit">Add</button>
+    </form>
   </body>
 </html>
